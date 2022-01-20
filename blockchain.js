@@ -15,7 +15,7 @@ const GENESIS = {
     "eip155Block": 0,
     "eip158Block": 0
   },
-  "difficulty": "400000",
+  "difficulty": "100000",
   "gasLimit": "0x8000000",
   "coinbase": "0x0000000000000000000000000000000000000000",
   "alloc": {},
@@ -42,8 +42,9 @@ function initAndStartBlockchain() {
   const logStream = fs.createWriteStream(NODE_LOGFILE, { flags: 'a' });
 
   const node = spawn('geth', [
-    '--datadir', DATADIR, '--http', '--http.port', '8000', '--nodiscover', '--http.api',
-    '\"db,eth,net,web3,personal,miner,admin\"', '--networkid', '1900', '--port', '33333', '--mine', '--miner.threads=1'
+    '--datadir', DATADIR, '--http', '--http.port', '8000', '--nodiscover', '--http.api', 
+    '\"db,eth,net,web3,personal,miner,admin\"', '--networkid', '1900', '--port', '33333', '--mine', '--miner.threads=1',
+    '--txpool.globalslots', '10000',
   ]);
 
   node.stdout.pipe(logStream);

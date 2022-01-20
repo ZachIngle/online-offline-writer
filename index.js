@@ -26,4 +26,6 @@ const pk = key[1];
 console.log(pp);
 const hash = ChameleonHash.hashSync(m, pk, pp);
 console.log(hash[0].toStringSync());
-
+const hashArr = java.newArray('java.math.BigInteger', [m, hash[1], hash[2]]);
+console.log(hashArr)
+console.log(ChameleonHash.verifySync(pk, hashArr, pp));
