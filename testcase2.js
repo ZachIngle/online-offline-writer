@@ -5,14 +5,14 @@ async function start() {
   const { address, privateKey } = initAndStartBlockchain();
 
   init(address, privateKey);
-
+  
   // Off peak time
-  const transactions = createDummyTransactions(4000);
+  const transactions = createDummyTransactions(5000);
   await sendDummyTransactions(transactions, 200);
   
   // On peak time
   changeTransactions(transactions);
-  await testChain(2000, 200);
+  await testChain(5000, 200);
 }
 
 start();

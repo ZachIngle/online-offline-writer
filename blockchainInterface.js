@@ -149,17 +149,17 @@ async function sendDummyTransactions(transactions, TPS = 200) {
   const sentTimeTaken = sentDiff[0] + (sentDiff[1] / NS_PER_SEC);
 
   console.log('Sent all dummy transations'); 
-  console.log(`Sent TPS: ${(transactions.length) / sentTimeTaken}`);
+  console.log(`Dummy Sent TPS: ${(transactions.length) / sentTimeTaken}`);
   
-  console.log('Waiting for all to be confirmed...');
+  console.log('Waiting for all dummy to be confirmed...');
   
   await lastTransaction;
 
-  console.log('All transactions confirmed');
+  console.log('All dummy transactions confirmed');
   const confirmedDiff = hrtime(start);
   const confirmedTimeTaken = confirmedDiff[0] + (confirmedDiff[1] / NS_PER_SEC);
-  console.log(`Confirmed time taken: ${confirmedTimeTaken}`); 
-  console.log(`Confirmed TPS: ${(transactions.length) / confirmedTimeTaken}`);
+  console.log(`Dummy Confirmed time taken: ${confirmedTimeTaken}`); 
+  console.log(`Dummy Confirmed TPS: ${(transactions.length) / confirmedTimeTaken}`);
 }
 
 function changeTransactions(transactions) {
